@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace Lab3 {
   public class VladBlock : Lab3.IBlocks {
     public int[] ExecuteOne(int[] array) {
@@ -54,10 +56,10 @@ namespace Lab3 {
     }
 
     public int[][] ExecuteThree(int[][] matrix) {
-      int[][] result = new int[matrix.Length + 1][];
-      int min_i = 0, min_j = 0;
+      int i = 0, min_i = 0, min_j = 0, len = matrix.Length;
+      int[][] result = new int[len + 1][];
 
-      for (int i = 0; i < matrix.Length; i++) {
+      for (;i < len; i++) {
         for (int j = 0; j < matrix[i].Length; j++) {
           if (matrix[i][j] < matrix[min_i][min_j]) {
             min_i = i;
@@ -66,9 +68,23 @@ namespace Lab3 {
         }
       }
 
-      for (int i = 0; i <= matrix.Length; i++) {
-        result[i] = (i+1 == min_i) ? matrix[min_i] : matrix[i];
-      }
+      // is this better?
+      // for (int i = 0; i < len; i++) {
+      //     if (i < min_i) 
+      //       result[i] = matrix[i];
+      //     else if (i == min_i)
+      //       Lib.gen_array(out result[i]);
+      //     else
+      //       result[i] = matrix[i - 1];
+      // }
+
+      for (i = 0; i < min_i; i++) result[i] = matrix[i];
+
+      Lib.gen_array(out result[i]);
+
+      for (;i < len; i++) result[i + 1] = matrix[i];
+
+      // ^
 
       return result;
     }
