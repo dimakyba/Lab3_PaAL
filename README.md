@@ -1,1 +1,5 @@
-# Lab3_PaAL
+## todo
+
+- [x] main
+- [ ] functions
+- [ ] graphics
