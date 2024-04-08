@@ -83,38 +83,30 @@ namespace Lab3
         }
       }
 
-      // is this better?
-      // for (int i = 0; i < len; i++) {
-      //     if (i < min_i)
-      //       result[i] = matrix[i];
-      //     else if (i == min_i)
-      //       Lib.gen_array(out result[i]);
-      //     else
-      //       result[i] = matrix[i - 1];
-      // }
-
       for (i = 0; i < min_i; i++) result[i] = matrix[i];
 
       Lib.gen_array(out result[i]);
 
       for (; i < len; i++) result[i + 1] = matrix[i];
 
-      // ^
-
       return result;
     }
 
     public int[][] ExecuteFour(int[][] matrix1, int[][] matrix2)
     {
-      int max_len = Math.Max(matrix1.Length, matrix2.Length);
-      int[][] result = new int[max_len][];
+      int maxLength = Math.Max(matrix1.Length, matrix2.Length);
+      int[][] result = new int[maxLength][];
 
-      for (int i = 0; i < max_len; i++)
+      for (int i = 0; i < maxLength; i++)
       {
-        int max_wth = Math.Max(matrix1[i].Length, matrix2[i].Length);
-        result[i] = new int[max_wth];
-        for (int j = 0; j < max_wth; j++)
-          result[i][j] = matrix1[i][j] + matrix2[i][j];
+        int len1 = i < matrix1.Length ? matrix1[i].Length : 0;
+        int len2 = i < matrix2.Length ? matrix2[i].Length : 0;
+        int maxLen = Math.Max(len1, len2);
+        
+        result[i] = new int[maxLen];
+
+        for (int j = 0; j < maxLen; j++)
+          result[i][j] = (j < len1 ? matrix1[i][j] : 0) + (j < len2 ? matrix2[i][j] : 0);
       }
 
       return result;

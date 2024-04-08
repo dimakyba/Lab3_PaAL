@@ -62,10 +62,12 @@ namespace Lab3
               case 4:
                 matrix = Lib.match_matrix(matrix);
                 matrix2 = Lib.match_matrix(matrix2);
-                Console.WriteLine("In");
+                Console.WriteLine("In 1");
                 Lib.print_matrix(matrix);
+                Console.WriteLine("\nIn 2");
+                Lib.print_matrix(matrix2);
                 matrix = block.ExecuteFour(matrix, matrix2);
-                Console.WriteLine("Out");
+                Console.WriteLine("\nOut");
                 Lib.print_matrix(matrix);
                 break;
             }
