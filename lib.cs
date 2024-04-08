@@ -66,7 +66,7 @@ namespace Lab3
     public static void gen_array(out int[] array)
     {
       var rand = new Random();
-      int length = rand.Next(0, 10);
+      int length = rand.Next(1, 5);
       array = new int[length];
       for (int i = 0; i < length; i++)
       {
@@ -112,12 +112,12 @@ namespace Lab3
     public static void gen_matrix(out int[][] matrix)
     {
       var rand = new Random();
-      int length, height = rand.Next(0, 10);
+      int length, height = rand.Next(1, 5);
       matrix = new int[height][];
 
       for (int i = 0; i < height; i++)
       {
-        length = rand.Next(0, 10);
+        length = rand.Next(1, 5);
         matrix[i] = new int[length];
         for (int j = 0; j < length; j++)
         {
