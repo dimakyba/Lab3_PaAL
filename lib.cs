@@ -97,15 +97,11 @@ namespace Lab3
 
       for (int i = 0; i < height; i++)
       {
-        Console.Write($"\nВведіть кількість елементів у рядку '{i}': ");
-        length = int.Parse(Console.ReadLine());
-        matrix[i] = new int[length];
-        Console.Write($"\nВведіть {length} елементів: ");
+        Console.Write($"\nВведіть елементи {i}-го рядка: ");
         string[] data = Console.ReadLine().Split();
-        for (int j = 0; j < length; j++)
-        {
+        matrix[i] = new int[data.Length];
+        for (int j = 0; j < data.Length; j++)
           matrix[i][j] = int.Parse(data[j]);
-        }
       }
     }
 
