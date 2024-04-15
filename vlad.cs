@@ -1,48 +1,37 @@
-using System.Globalization;
-
-namespace Lab3
-{
-  public class VladBlock : Lab3.IBlocks
-  {
-    public int[] ExecuteOne(int[] array)
-    {
-      int max_index = 0, max = 0;
+namespace Lab3 {
+  public class VladBlock : IBlocks {
+    public int[] ExecuteOne(int[] array) {
+      int max = 0;
       int len = array.Length;
       int[] tarray = new int[len + 1];
 
-      for (int i = 0; i < len; i++)
-      {
-        if (array[i] > array[max_index])
-        {
-          max_index = i;
-          max = array[max_index];
+      for (int i = 0; i < len; i++) {
+        if (array[i] > array[max]) {
+          max = i;
         }
       }
 
-      if (max % 2 == 0)
-      {
-        for (int i = len + 1; (i--) > 0;)
-          tarray[i] = (i > max_index) ? array[i - 1] : array[i];
-        (tarray[max_index], tarray[max_index + 1]) = (max / 2, max / 2);
+      Console.WriteLine($"Максимальний елемент: {array[max]}");
+
+      if (array[max] % 2 == 0) {
+        for (int i = len + 1; i --> 0;)
+          tarray[i] = (i > max) ? array[i - 1] : array[i];
+
+          (tarray[max], tarray[max + 1]) = (array[max] / 2, array[max] / 2);
         return tarray;
       }
 
       return array;
     }
 
-    public int[][] ExecuteTwo(int n)
-    {
+    public int[][] ExecuteTwo(int n) {
       int digit_count = (int)Math.Ceiling(Math.Log10(n));
       int max_sum = digit_count * 9;
-
-      // skip 0 -> len+1
       int[][] sum_lists = new int[max_sum + 1][];
 
-      for (int i = 1; i <= max_sum; i++)
-      {
+      for (int i = 1; i <= max_sum; i++) {
         sum_lists[i] = new int[n / i];
-        for (int j = 1; j <= n / i; j++)
-        {
+        for (int j = 1; j <= n / i; j++) {
           sum_lists[i][j - 1] = j * i;
         }
       }
@@ -54,11 +43,9 @@ namespace Lab3
 
       return result;
 
-      static int num_sum(int n)
-      {
+      static int num_sum(int n) {
         int sum = 0;
-        while (n > 0)
-        {
+        while (n > 0) {
           sum += n % 10;
           n /= 10;
         }
@@ -66,17 +53,13 @@ namespace Lab3
       }
     }
 
-    public int[][] ExecuteThree(int[][] matrix)
-    {
+    public int[][] ExecuteThree(int[][] matrix) {
       int i = 0, min_i = 0, min_j = 0, len = matrix.Length;
       int[][] result = new int[len + 1][];
 
-      for (; i < len; i++)
-      {
-        for (int j = 0; j < matrix[i].Length; j++)
-        {
-          if (matrix[i][j] < matrix[min_i][min_j])
-          {
+      for (;i < len; i++) {
+        for (int j = 0; j < matrix[i].Length; j++) {
+          if (matrix[i][j] < matrix[min_i][min_j]) {
             min_i = i;
             min_j = j;
           }
@@ -92,13 +75,11 @@ namespace Lab3
       return result;
     }
 
-    public int[][] ExecuteFour(int[][] matrix1, int[][] matrix2)
-    {
+    public int[][] ExecuteFour(int[] a, int[] a2, int[][] matrix1, int[][] matrix2) {
       int maxLength = Math.Max(matrix1.Length, matrix2.Length);
       int[][] result = new int[maxLength][];
 
-      for (int i = 0; i < maxLength; i++)
-      {
+      for (int i = 0; i < maxLength; i++) {
         int len1 = i < matrix1.Length ? matrix1[i].Length : 0;
         int len2 = i < matrix2.Length ? matrix2[i].Length : 0;
         int maxLen = Math.Max(len1, len2);

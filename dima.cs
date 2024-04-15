@@ -72,7 +72,7 @@ namespace Lab3
       return [];
     }
 
-    public int[][] ExecuteFour(int[][] matrix1, int[][] matrix2)
+    public int[][] ExecuteFour(int[] _, int[] __, int[][] matrix1, int[][] ___)
     {
       //
       return [];
