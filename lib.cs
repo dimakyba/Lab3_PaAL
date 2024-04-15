@@ -4,7 +4,7 @@ namespace Lab3
   {
     public static int[] match_array(int[] array)
     {
-      Console.Write("\nЯку масив використовувати?\n 1 - Ввести новий\n 2 - Згенерувати новий\n 3 - Використати старий\n Введіть число: ");
+      Console.Write("\nЯкий масив використовувати?\n 1 - Ввести новий\n 2 - Згенерувати новий\n 3 - Використати старий\n Введіть число: ");
       int option = int.Parse(Console.ReadLine());
       switch (option)
       {
@@ -97,11 +97,15 @@ namespace Lab3
 
       for (int i = 0; i < height; i++)
       {
-        Console.Write($"\nВведіть елементи {i}-го рядка: ");
+        Console.Write($"\nВведіть кількість елементів у рядку '{i}': ");
+        length = int.Parse(Console.ReadLine());
+        matrix[i] = new int[length];
+        Console.Write($"\nВведіть {length} елементів: ");
         string[] data = Console.ReadLine().Split();
-        matrix[i] = new int[data.Length];
-        for (int j = 0; j < data.Length; j++)
+        for (int j = 0; j < length; j++)
+        {
           matrix[i][j] = int.Parse(data[j]);
+        }
       }
     }
 
