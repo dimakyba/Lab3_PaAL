@@ -1,5 +1,5 @@
 ## todo
 
 - [x] main
-- [ ] functions
+- [x] functions
 - [ ] graphics
