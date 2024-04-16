@@ -11,7 +11,9 @@ namespace Lab3
     // int[][] ExecuteFour(int[][] matrix1, int[][] matrix2);
     // int[][] ExecuteFour(int[] array);
     // int[][] ExecuteFour(int[] array1, int[] array2);
-    int[][] ExecuteFour(int[] array1 = null, int[] array2 = null, int[][] matrix1 = null, int[][] matrix2 = null);
+    // int[][] ExecuteFour(int[] array1 = null, int[] array2 = null, int[][] matrix1 = null, int[][] matrix2 = null);
+    int[][] ExecuteFour(int[] _, int[] __, int[][] matrix1, int[][] matrix2);
+
   }
 
   public class Start
