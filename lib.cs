@@ -102,12 +102,12 @@ namespace Lab3
     public static void gen_matrix(out int[][] matrix)
     {
       var rand = new Random();
-      int length, height = rand.Next(1, 10);
+      int length, height = rand.Next(2, 5);
       matrix = new int[height][];
 
       for (int i = 0; i < height; i++)
       {
-        length = rand.Next(1, 10);
+        length = rand.Next(1, 5);
         matrix[i] = new int[length];
         for (int j = 0; j < length; j++)
           matrix[i][j] = rand.Next(-100, 101);
@@ -173,7 +173,7 @@ namespace Lab3
           Console.WriteLine("\nВхідний масив 2");
           Lib.print_array(array2);
 
-          matrix = block.ExecuteFour(array1: array, array2: array2);
+          matrix = block.ExecuteFour(array, array2);
           break;
 
         case 2:
