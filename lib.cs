@@ -88,12 +88,11 @@ namespace Lab3 {
 
       matrix = new int[height][];
 
-
       for (int i = 0; i < height; i++) {
         Console.Write($"\nВведіть елементи {i}-го рядка: ");
 
         string[] data = Console.ReadLine().Split();
-        for (int j = 0; j < length; j++)
+        for (int j = 0; j < data.Length; j++)
         {
           matrix[i][j] = int.Parse(data[j]);
         }
