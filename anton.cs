@@ -5,6 +5,7 @@ namespace Lab3
     public int[] one_alg(int[] array)
     {
       int counter = 0;
+
         int arraySize = array.Length; 
         for (int i = 0; i < arraySize; i++) if (array[i] % 2 == 0)counter++;
 
@@ -19,6 +20,7 @@ namespace Lab3
                 solution[j] = 0;
             }
         }
+
       return solution;
     }
 
@@ -99,14 +101,17 @@ namespace Lab3
       Lib.print_matrix(transposedSolution);
       for (int i = 0; i < rows; i++)Array.Reverse(transposedSolution[i]);
 
+
       int[] temp = transposedSolution[0];
       transposedSolution[0] = transposedSolution[rows - 1];
       transposedSolution[rows - 1] = temp;
+
 
 
       System.Console.WriteLine("\nКінцевий результат: ");
       Lib.print_matrix(transposedSolution);
       return transposedSolution;
     }
+
   }
 }
