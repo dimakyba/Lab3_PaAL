@@ -1,6 +1,6 @@
 namespace Lab3 {
-  public class VladBlock : IBlocks {
-    public int[] ExecuteOne(int[] array) {
+  public class Vlad : IStudents {
+    public int[] one_alg(int[] array) {
       int max = 0;
       int len = array.Length;
       int[] tarray = new int[len + 1];
@@ -24,7 +24,7 @@ namespace Lab3 {
       return array;
     }
 
-    public int[][] ExecuteTwo(int n) {
+    public int[][] two_alg(int n) {
       int digit_count = (int)Math.Ceiling(Math.Log10(n));
       int max_sum = digit_count * 9;
       int[][] sum_lists = new int[max_sum + 1][];
@@ -53,7 +53,7 @@ namespace Lab3 {
       }
     }
 
-    public int[][] ExecuteThree(int[][] matrix) {
+    public int[][] three_alg(int[][] matrix) {
       int i = 0, min_i = 0, min_j = 0, len = matrix.Length;
       int[][] result = new int[len + 1][];
 
@@ -75,7 +75,7 @@ namespace Lab3 {
       return result;
     }
 
-    public int[][] ExecuteFour(int[] a, int[] a2, int[][] matrix1, int[][] matrix2) {
+    public int[][] four_alg(int[] a, int[] a2, int[][] matrix1, int[][] matrix2) {
       int maxLength = Math.Max(matrix1.Length, matrix2.Length);
       int[][] result = new int[maxLength][];
 
