@@ -100,40 +100,53 @@ namespace Lab3
       return newMatrix;
     }
 
-
-    // Сформувати квадратну матрицю C з одновимірного масиву X за наступним правилом: для будь яких
-    // i, j = 1 ... N (де N – розмір масиву), якщо Xi = Xj
-
-    // , в елемент Cij записати одиницю, а інакше – нуль.
-    // Відсортувати елементи кожного рядка C за зменшенням.
-    //  Створити і заповнити випадковими числами
-    // матрицю Y, кількість рядків якої дорівнює кількості рядків матриці X, а кількість стовпчиків у кожному
-    // рядку дорівнює кількості одиниць у відповідному рядку матриці X; обчислити суму елементів
-    // матриці Y.
-
-    public int[][] four_alg(int[] array, int[] _, int[][] __, int[][] ___)
-
+    public int[][] four_alg(int[] nr, int[] _, int[][] __, int[][] ___)
     {
-      int N = array.Length;
-      int[][] C = new int[N][];
+      int GetCountOfOnes(int[] arr)
+      {
+        int counter = 0;
+        for (int i = 0; i < arr.Length; i++)
+        {
+          if (arr[i] == 1)
+          {
+            counter++;
+          }
+        }
+
+        return counter;
+      }
+
+      int N = nr.Length, sumY = 0;
+      int[][] array = new int[N][], C = new int[N][], Y = new int[N][];
+      array[0] = nr;
 
       for (int i = 0; i < N; i++)
       {
         C[i] = new int[N];
         for (int j = 0; j < N; j++)
         {
-          if (array[i] == array[j])
-            C[i][j] = 1;
-          else
-            C[i][j] = 0;
+          C[i][j] = (array[0][i] == array[0][j]) ? 1: 0;
         }
-
         Array.Sort(C[i]);
         Array.Reverse(C[i]);
-
-
       }
-      return C;
+
+      Random rnd = new();
+      for (int i = 0; i < N; i++)
+      {
+        int rowSize = GetCountOfOnes(C[i]);
+        Y[i] = new int[rowSize];
+
+        for (int j = 0; j < rowSize; j++)
+        {
+          Y[i][j] = rnd.Next(-10, 10);
+          sumY += Y[i][j];
+        }
+      }
+
+      Console.WriteLine("Сума всіх елементів матриці Y: {0}", sumY);
+
+      return Y;
     }
   }
 }
