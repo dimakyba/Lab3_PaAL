@@ -1,8 +1,8 @@
 namespace Lab3
 {
-  public class DmytroBlock : Lab3.IBlocks
+  public class Dmytro : IStudents
   {
-    public int[] ExecuteOne(int[] array)
+    public int[] one_alg(int[] array)
     {
       // Вставити після кожного від’ємного елемента його модуль.
       int negativeCount = 0;
@@ -32,41 +32,36 @@ namespace Lab3
       return newArray;
     }
 
-    public int[][] ExecuteTwo(int n)
-    {
-      static int num_sum(int n)
-      {
+    public int[][] two_alg(int n) {
+      int digit_count = (int)Math.Ceiling(Math.Log10(n));
+      int max_sum = digit_count * 9;
+      int[][] sum_lists = new int[max_sum + 1][];
+
+      for (int i = 1; i <= max_sum; i++) {
+        sum_lists[i] = new int[n / i];
+        for (int j = 1; j <= n / i; j++) {
+          sum_lists[i][j - 1] = j * i;
+        }
+      }
+
+      int[][] result = new int[n][];
+
+      for (int i = 1; i <= n; i++)
+        result[i - 1] = sum_lists[num_sum(i)];
+
+      return result;
+
+      static int num_sum(int n) {
         int sum = 0;
-        while (n > 0)
-        {
+        while (n > 0) {
           sum += n % 10;
           n /= 10;
         }
         return sum;
       }
-
-      int[][] sum_lists = new int[100][];
-
-      for (int i = 1; i < n; i++)
-      {
-        int i_sum = num_sum(i);
-        sum_lists[i_sum] = new int[n];
-
-        int k = 0;
-        for (int j = 1; j < (int)Math.Sqrt(i_sum); j++)
-        {
-          if (i_sum % j == 0)
-          {
-            sum_lists[i_sum][k++] = j;
-            sum_lists[i_sum][k++] = i_sum / j;
-          }
-        }
-      }
-
-      return sum_lists;
     }
 
-    public int[][] ExecuteThree(int[][] matrix)
+    public int[][] three_alg(int[][] matrix)
     {
       int FindMinRowIndex(int[][] matrix)
       {
@@ -115,7 +110,9 @@ namespace Lab3
     // матрицю Y, кількість рядків якої дорівнює кількості рядків матриці X, а кількість стовпчиків у кожному
     // рядку дорівнює кількості одиниць у відповідному рядку матриці X; обчислити суму елементів
     // матриці Y.
-    public int[][] ExecuteFour(int[] array)
+
+    public int[][] four_alg(int[] array, int[] _, int[][] __, int[][] ___)
+
     {
       int N = array.Length;
       int[][] C = new int[N][];
