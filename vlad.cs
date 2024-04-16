@@ -102,7 +102,7 @@ namespace Lab3
         int len1 = i < matrix1.Length ? matrix1[i].Length : 0;
         int len2 = i < matrix2.Length ? matrix2[i].Length : 0;
         int maxLen = Math.Max(len1, len2);
-        
+
         result[i] = new int[maxLen];
 
         for (int j = 0; j < maxLen; j++)

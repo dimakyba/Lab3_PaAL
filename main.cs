@@ -8,9 +8,10 @@ namespace Lab3
     int[] ExecuteOne(int[] array);
     int[][] ExecuteTwo(int n);
     int[][] ExecuteThree(int[][] matrix);
-    int[][] ExecuteFour(int[][] matrix1, int[][] matrix2);
-    int[][] ExecuteFour(int[] array);
-    int[][] ExecuteFour(int[] array1, int[] array2);
+    // int[][] ExecuteFour(int[][] matrix1, int[][] matrix2);
+    // int[][] ExecuteFour(int[] array);
+    // int[][] ExecuteFour(int[] array1, int[] array2);
+    int[][] ExecuteFour(int[] array1 = null, int[] array2 = null, int[][] matrix1 = null, int[][] matrix2 = null);
   }
 
   public class Start
@@ -26,12 +27,12 @@ namespace Lab3
     {
       Console.OutputEncoding = System.Text.UTF8Encoding.UTF8;
       int variant;
-      
+
       do
       {
         Console.Write("\n[<- 0]\nВолощук Влад (Варіант 13)\nДмитро Киба (Варіант 14)\nПопов Антон (Варіант 15)\nВведіть варіант: ");
         variant = int.Parse(System.Console.ReadLine());
-        
+
         if (Blocks.TryGetValue(variant, out IBlocks block))
         {
           ProcessBlock(block);
@@ -110,7 +111,7 @@ namespace Lab3
           Lib.print_matrix(matrix);
           Console.WriteLine("\nIn 2");
           Lib.print_matrix(matrix2);
-          matrix = block.ExecuteFour(matrix, matrix2);
+          matrix = block.ExecuteFour(null,null,matrix, matrix2);
           Console.WriteLine("\nOut");
           Lib.print_matrix(matrix);
           break;

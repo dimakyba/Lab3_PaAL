@@ -68,14 +68,49 @@ namespace Lab3
 
     public int[][] ExecuteThree(int[][] matrix)
     {
-      //
-      return [];
+      int FindMinRowIndex(int[][] matrix)
+      {
+        int minRowIndex = 0;
+        int minValue = matrix[0][0];
+
+        for (int i = 0; i < matrix.Length; i++)
+        {
+          for (int j = 0; j < matrix[i].Length; j++)
+          {
+            if (matrix[i][j] < minValue)
+            {
+              minValue = matrix[i][j];
+              minRowIndex = i;
+            }
+          }
+        }
+
+        return minRowIndex;
+      }
+      int minRowIndex = FindMinRowIndex(matrix);
+      int[] newRow = new int[matrix[0].Length];
+      int[][] newMatrix = new int[matrix.Length + 1][];
+
+      for (int i = 0; i < minRowIndex; i++)
+      {
+        newMatrix[i] = matrix[i];
+      }
+      newMatrix[minRowIndex] = newRow;
+
+      for (int i = minRowIndex + 1; i < newMatrix.Length; i++)
+      {
+        newMatrix[i] = matrix[i - 1];
+      }
+
+      return newMatrix;
     }
 
-    public int[][] ExecuteFour(int[][] matrix1, int[][] matrix2)
+    public int[][] ExecuteFour(int[] array)
     {
       //
       return [];
     }
+
+
   }
 }
