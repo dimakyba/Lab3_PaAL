@@ -2,4 +2,4 @@
 
 - [x] main
 - [x] functions
-- [ ] graphics
+- [x] graphics
